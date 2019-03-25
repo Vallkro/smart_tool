@@ -1,0 +1,41 @@
+[0.000000] (-) TimerEvent: {}
+[0.000422] (smart_tool) JobQueued: {'identifier': 'smart_tool', 'dependencies': OrderedDict()}
+[0.000641] (smart_tool) JobStarted: {'identifier': 'smart_tool'}
+[0.098232] (-) TimerEvent: {}
+[0.198727] (-) TimerEvent: {}
+[0.299177] (-) TimerEvent: {}
+[0.328307] (smart_tool) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'develop', '--prefix', '/home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool', '--no-deps', 'install_data', '--install-dir', '/home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool'], 'cwd': '/home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'valle', 'LANGUAGE': 'sv:en', 'LC_TIME': 'sv_SE.UTF-8', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1458', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'HOME': '/home/valle', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'RTI_LICENSE_FILE': 'path/to/rti_license.dat', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'sv_SE.UTF-8', 'MANAGERPID': '1094', 'DBUS_STARTER_BUS_TYPE': 'session', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=240730398acdc7da66dcb4915c97a506', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'LOGNAME': 'valle', 'JOURNAL_STREAM': '9:28053', '_': '/usr/bin/colcon', 'USERNAME': 'valle', 'XDG_SESSION_ID': '1', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '1', 'PATH': '/home/valle/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'INVOCATION_ID': 'af19b6612ed94c8c954d16fe8bdd8c95', 'PAPERSIZE': 'a4', 'SESSION_MANAGER': 'local/walle:@/tmp/.ICE-unix/1127,unix/walle:/tmp/.ICE-unix/1127', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/830325f0_e1be_4d49_8fa8_157bbf0a19e4', 'LC_ADDRESS': 'sv_SE.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'ZEITGEIST_DATA_PATH': '/home/valle/.local/share/zeitgeist', 'LANG': 'sv_SE.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'sv_SE.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XMODIFIERS': '@im=ibus', 'GNOME_TERMINAL_SERVICE': ':1.224', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LC_NAME': 'sv_SE.UTF-8', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'sv_SE.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'sv_SE.UTF-8', 'XDG_VTNR': '1', 'QT_IM_MODULE': 'ibus', 'LC_ALL': 'en_US.UTF-8', 'PWD': '/home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=240730398acdc7da66dcb4915c97a506', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'LC_NUMERIC': 'sv_SE.UTF-8', 'LC_PAPER': 'sv_SE.UTF-8', 'VTE_VERSION': '5202', 'PYTHONPATH': '/home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages:'}, 'shell': False}
+[0.399284] (-) TimerEvent: {}
+[0.499768] (-) TimerEvent: {}
+[0.587480] (smart_tool) StdoutLine: {'line': b'running develop\n'}
+[0.599854] (-) TimerEvent: {}
+[0.700254] (-) TimerEvent: {}
+[0.705181] (smart_tool) StdoutLine: {'line': b'running egg_info\n'}
+[0.705551] (smart_tool) StdoutLine: {'line': b'creating smart_tool.egg-info\n'}
+[0.705810] (smart_tool) StdoutLine: {'line': b'writing smart_tool.egg-info/PKG-INFO\n'}
+[0.706093] (smart_tool) StdoutLine: {'line': b'writing dependency_links to smart_tool.egg-info/dependency_links.txt\n'}
+[0.706287] (smart_tool) StdoutLine: {'line': b'writing entry points to smart_tool.egg-info/entry_points.txt\n'}
+[0.706464] (smart_tool) StdoutLine: {'line': b'writing requirements to smart_tool.egg-info/requires.txt\n'}
+[0.706636] (smart_tool) StdoutLine: {'line': b'writing top-level names to smart_tool.egg-info/top_level.txt\n'}
+[0.709972] (smart_tool) StdoutLine: {'line': b"writing manifest file 'smart_tool.egg-info/SOURCES.txt'\n"}
+[0.744450] (smart_tool) StdoutLine: {'line': b"reading manifest file 'smart_tool.egg-info/SOURCES.txt'\n"}
+[0.745521] (smart_tool) StdoutLine: {'line': b"writing manifest file 'smart_tool.egg-info/SOURCES.txt'\n"}
+[0.746964] (smart_tool) StdoutLine: {'line': b'running build_ext\n'}
+[0.747287] (smart_tool) StdoutLine: {'line': b'Creating /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages/site.py\n'}
+[0.748528] (smart_tool) StdoutLine: {'line': b'Creating /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages/smart-tool.egg-link (link to .)\n'}
+[0.748849] (smart_tool) StdoutLine: {'line': b'Adding smart-tool 0.6.2 to easy-install.pth file\n'}
+[0.749922] (smart_tool) StdoutLine: {'line': b'Installing listener script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.750299] (smart_tool) StdoutLine: {'line': b'Installing listener_qos script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.750591] (smart_tool) StdoutLine: {'line': b'Installing listener_serialized script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.750871] (smart_tool) StdoutLine: {'line': b'Installing mount_client script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.751150] (smart_tool) StdoutLine: {'line': b'Installing mount_client_async script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.751333] (smart_tool) StdoutLine: {'line': b'Installing mount_server script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.751510] (smart_tool) StdoutLine: {'line': b'Installing talker script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.751689] (smart_tool) StdoutLine: {'line': b'Installing talker_qos script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool\n'}
+[0.751859] (smart_tool) StdoutLine: {'line': b'\n'}
+[0.752058] (smart_tool) StdoutLine: {'line': b'Installed /home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool\n'}
+[0.752232] (smart_tool) StdoutLine: {'line': b'running install_data\n'}
+[0.788819] (smart_tool) CommandEnded: {'returncode': 0}
+[0.801368] (-) TimerEvent: {}
+[0.803714] (smart_tool) JobEnded: {'identifier': 'smart_tool', 'rc': 0}
+[0.804370] (-) EventReactorShutdown: {}

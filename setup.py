@@ -38,9 +38,9 @@ setup(
             'listener_qos = smart_tool.topics.listener_qos:main',
             'talker_qos = smart_tool.topics.talker_qos:main',
             'listener_serialized = smart_tool.topics.listener_serialized:main',
-            'add_two_ints_client = smart_tool.services.add_two_ints_client:main',
-            'add_two_ints_client_async = smart_tool.services.add_two_ints_client_async:main',
-            'add_two_ints_server = smart_tool.services.add_two_ints_server:main'
+            'mount_client = smart_tool.services.mount_client:main',
+            'mount_client_async = smart_tool.services.mount_client_async:main',
+            'mount_server = smart_tool.services.mount_server:main'
         ],
     },
 )

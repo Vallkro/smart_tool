@@ -1,0 +1,28 @@
+Invoking command in '/home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool': PYTHONPATH=/home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages: /usr/bin/python3 setup.py develop --prefix /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool --no-deps install_data --install-dir /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool
+running develop
+running egg_info
+creating smart_tool.egg-info
+writing smart_tool.egg-info/PKG-INFO
+writing dependency_links to smart_tool.egg-info/dependency_links.txt
+writing entry points to smart_tool.egg-info/entry_points.txt
+writing requirements to smart_tool.egg-info/requires.txt
+writing top-level names to smart_tool.egg-info/top_level.txt
+writing manifest file 'smart_tool.egg-info/SOURCES.txt'
+reading manifest file 'smart_tool.egg-info/SOURCES.txt'
+writing manifest file 'smart_tool.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages/site.py
+Creating /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages/smart-tool.egg-link (link to .)
+Adding smart-tool 0.6.2 to easy-install.pth file
+Installing listener script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing listener_qos script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing listener_serialized script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing mount_client script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing mount_client_async script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing mount_server script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing talker script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+Installing talker_qos script to /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/smart_tool
+
+Installed /home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool
+running install_data
+Invoked command in '/home/valle/ros2_ws/src/ros2/demos/smart_tool/build/smart_tool' returned '0': PYTHONPATH=/home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool/lib/python3.6/site-packages: /usr/bin/python3 setup.py develop --prefix /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool --no-deps install_data --install-dir /home/valle/ros2_ws/src/ros2/demos/smart_tool/install/smart_tool
