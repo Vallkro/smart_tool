@@ -14,22 +14,22 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    author='Esteve Fernandez',
-    author_email='esteve@osrfoundation.org',
-    maintainer='Mikael Arguedas',
-    maintainer_email='mikael@osrfoundation.org',
+    author='',
+    author_email='',
+    maintainer='',
+    maintainer_email='',
     keywords=['ROS'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
+        '',
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
     description=(
         'Python nodes which were previously in the ros2/examples repository '
-        'but are now just used for demo purposes.'
+        'but are now just used for demo purposes. Now a smart tool, based on the demo_nodes_py'
     ),
-    license='Apache License, Version 2.0',
+    license='',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
