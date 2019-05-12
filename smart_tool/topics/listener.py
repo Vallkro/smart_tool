@@ -5,6 +5,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 import smbus2
 import time
+import struct
 ##import Jetson.GPIO as GPIO
 
 
@@ -16,6 +17,7 @@ address = 0x04
 
 #Slave Address 2
 address_2 = 0x05
+dataSize=4
 
 previousCommand=""
 
@@ -39,15 +41,12 @@ def writeNumber(value):
         return -1
 
 def readNumber():
-    data = ""
-    for i in range(0, 10):
-            data += chr(bus.read_byte(address_2));
-    print (data)
-    time.sleep(.01);
-    return data    
+    # number = bus.read_byte(address)
+    number = bus.read_byte_data(address_2,dataSize)
+    return number
     
 def get_data():
-    return bus.read_i2c_block_data(address_2,0);
+    return bus.read_i2c_block_data(address_2,0,16);
   
 def get_float(data, index):
     bytes = data[4*index:(index+1)*4]
@@ -79,9 +78,48 @@ class Listener(Node):
             time.sleep(.1)
             
     def timer_callback(self):
+
+#[0]=state;
+#[1]=stage;
+#[2]=angle.bytes[0];
+#[3]=angle.bytes[1];
+#[4]=torqueUni.bytes[0];
+#[5]=torqueUni.bytes[1];
+#[6]=accelerationX.bytes[0];
+#[7]=accelerationX.bytes[1];
+#[8]=accelerationX.bytes[2];
+#[9]=accelerationX.bytes[3];
+#[10]=accelerationY.bytes[0];
+#[11]=accelerationY.bytes[1];
+#[12]=accelerationY.bytes[2];
+#[13]=accelerationY.bytes[3];
+#[14]=accelerationY.bytes[0];
+#[15]=accelerationY.bytes[1];
+#[16]=accelerationY.bytes[2];
+#[17]=accelerationY.bytes[3];
+#[18]=0;
+#[19]=0;
+#[20]=0;
+        dataList=[]
+        for i in range(0,20):
+            dataList.append(readNumber())
+            time.sleep(0.1)
+        #Pick out the numbers            
+        state=chr(dataList[0])
+        stage=int(dataList[1])
+        shorts=struct.unpack('<HH',bytearray(dataList[2:6]))
+        angle=shorts[0]
+        torque=shorts[1]
+
+        floats=struct.unpack('<fff',bytearray(dataList[6:18]))
+        accX=floats[0]
+        accY=floats[1]
+        accZ=floats[2]
+
+
         msg = String()
-        
-        msg.data = 'Hello World: TOOL{0}'.format(self.i)
+        msg.data = 'State : {} Stage : {} Angle : {} Torque : {} \n Acceleration X : {:.4} m/s^2 Acceleration Y : {:.4} m/s^2 Acceleration Z : {:.4} m/s^2 Pubnum[{}]'.format(state,stage,angle,torque,accX,accY,accZ,self.i)
+        #msg.data = msg2+'Hello World: TOOL{0}'.format(self.i)
         self.i += 1
         self.get_logger().info('Publishing: "{0}"'.format(msg.data))
         self.pub.publish(msg)
