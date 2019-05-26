@@ -6,6 +6,8 @@ from std_msgs.msg import String
 import smbus2
 import time
 import struct
+import os
+
 ##import Jetson.GPIO as GPIO
 
 
@@ -20,20 +22,11 @@ address_2 = 0x05
 dataSize=4
 
 previousCommand=""
+previousButton=2
+ROSMode=0
 
    
-#while True:
-#   data = raw_input("Enter the data to be sent : ")
-#   #data_list = list(data)
-#    #for i in data_list:
-#       #Sends to the Slaves 
-#    writeNumber(int(ord(data)))
-#    time.sleep(.1)
 
-#    writeNumber(int(0x0A))
-#    readNumber()
-#    print("hej")
-#    time.sleep(.1)
 def writeNumber(value):
         #bus.write_byte(address, value)
         bus.write_byte(address_2, value)
@@ -60,66 +53,77 @@ class Listener(Node):
         self.sub = self.create_subscription(String, 'toolListener', self.chatter_callback)
         self.pub = self.create_publisher(String, 'toolState')
         self.i=0
-        timer_period = 1
+        timer_period = .1
         self.tmr = self.create_timer(timer_period, self.timer_callback)
     def chatter_callback(self, msg):
         global previousCommand
+        global ROSMode
         self.get_logger().info('I heard: [%s]' % msg.data)
-        if msg.data !=previousCommand :
+         
+        if msg.data !=previousCommand and ROSMode==1:
             
             previousCommand=msg.data            
-            print(msg.data)
             writeNumber(int(ord(msg.data)))
-            time.sleep(.1)
+            time.sleep(.01)
             writeNumber(int(0x0A))
-            #readNumber()
-            #data2=get_data()
-            #print(get_float(data2,0))
-            time.sleep(.1)
+            time.sleep(.01)
             
     def timer_callback(self):
+        global previousButton
+        global ROSMode
+        
 
-#[0]=state;
-#[1]=stage;
-#[2]=angle.bytes[0];
-#[3]=angle.bytes[1];
-#[4]=torqueUni.bytes[0];
-#[5]=torqueUni.bytes[1];
-#[6]=accelerationX.bytes[0];
-#[7]=accelerationX.bytes[1];
-#[8]=accelerationX.bytes[2];
-#[9]=accelerationX.bytes[3];
-#[10]=accelerationY.bytes[0];
-#[11]=accelerationY.bytes[1];
-#[12]=accelerationY.bytes[2];
-#[13]=accelerationY.bytes[3];
-#[14]=accelerationY.bytes[0];
-#[15]=accelerationY.bytes[1];
-#[16]=accelerationY.bytes[2];
-#[17]=accelerationY.bytes[3];
-#[18]=0;
-#[19]=0;
-#[20]=0;
+
+
+
+        #reads GPIO 7 and 8 
+        startA='A'
+        resetSeq='R'
+        f = os.popen('cat /sys/class/gpio/gpio388/value')
+        ROSMode=int(f.read())
+        f2 = os.popen('cat /sys/class/gpio/gpio298/value')
+        buttonHandle=int(f2.read())
+        #Buttonhandler
+        if ROSMode==0 and buttonHandle==0 and previousButton!=0:
+            previousButton=buttonHandle
+            writeNumber(int(ord(startA)))
+            time.sleep(.01)
+            writeNumber(int(0x0A))
+            
+        
+        if ROSMode==0 and buttonHandle==1 :
+            previousButton=buttonHandle
+            writeNumber(int(ord(resetSeq)))
+            time.sleep(.01)
+            writeNumber(int(0x0A))
+            
+        
+        # Gather data from Arduino using i2c
         dataList=[]
-        for i in range(0,20):
+        for i in range(0,34):
             dataList.append(readNumber())
-            time.sleep(0.1)
-        #Pick out the numbers            
+            time.sleep(0.001)
+        #Pick out the numbers 
+        #converts bytes to chars and ints           
         state=chr(dataList[0])
         stage=int(dataList[1])
+        #unpacks shorts to an array
         shorts=struct.unpack('<HH',bytearray(dataList[2:6]))
         angle=shorts[0]
-        torque=shorts[1]
-
-        floats=struct.unpack('<fff',bytearray(dataList[6:18]))
+        omega=shorts[1]
+        #unpacks floats to an array 
+        floats=struct.unpack('<fffffff',bytearray(dataList[6:34]))
         accX=floats[0]
         accY=floats[1]
         accZ=floats[2]
+        gyroX=floats[3]
+        gyroY=floats[4]
+        gyroZ=floats[5]
+        torque=floats[6]
 
-
+        #Publish the data
         msg = String()
-        msg.data = 'State : {} Stage : {} Angle : {} Torque : {} \n Acceleration X : {:.4} m/s^2 Acceleration Y : {:.4} m/s^2 Acceleration Z : {:.4} m/s^2 Pubnum[{}]'.format(state,stage,angle,torque,accX,accY,accZ,self.i)
-        #msg.data = msg2+'Hello World: TOOL{0}'.format(self.i)
+        msg.data = 'Mode : {} State : {} Stage : {} Angle : {} deg Omega : {} rad/s Torque : {:.3} Nm \n Acceleration X : {:.3} m/s^2 Acceleration Y : {:.3} m/s^2 Acceleration Z : {:.3}  m/s^2 \n Gyro X : {:.3} dps Gyro Y : {:.3} dps Gyro Z : {:.3} dps  Pubnum[{}]'.format(ROSMode,state,stage,angle,omega,torque,accX,accY,accZ,gyroX,gyroY,gyroZ,self.i)
         self.i += 1
         self.get_logger().info('Publishing: "{0}"'.format(msg.data))
         self.pub.publish(msg)
@@ -147,6 +151,6 @@ def main(args=None):
 
 
 if __name__ == '__main__':
-    print (-1)
+   
     main()
-    print (0.0)
+  
